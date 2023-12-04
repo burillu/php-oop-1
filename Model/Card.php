@@ -11,12 +11,22 @@
             <div class="">
                 <div>
                     <span> vote:
-                        <?= $this->printStars() ?>
+                        <?php echo $custom ?>
                     </span>
                 </div>
                 <div>
                     genre:
                     <?php echo $genre->name ?>
+                </div>
+                <div class="d-flex">
+                    <span>
+                        original language :
+                    </span>
+                    <div class="icon-flag">
+
+                        <img src="<?php echo "img/flags/$flag_file" ?>" alt="<?php echo "$flag_file flag" ?>">
+                    </div>
+
                 </div>
 
             </div>
