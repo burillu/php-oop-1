@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . "/Genre.php";
 class Movie
 {
     private int $id;
@@ -8,10 +9,11 @@ class Movie
     private string $release_date;
     private string $poster_path;
     private string $original_language;
+    private Genre $genre;
     //funzione costruttore
 
 
-    public function __construct($id, $title, $overview, $vote_average, $release_date, $poster_path, $original_language)
+    public function __construct($id, $title, $overview, $vote_average, $release_date, $poster_path, $original_language, $genre)
     {
         $this->id = $id;
         $this->title = $title;
@@ -20,14 +22,21 @@ class Movie
         $this->release_date = $release_date;
         $this->poster_path = $poster_path;
         $this->original_language = $original_language;
+        $this->genre = $genre;
     }
     public function printCard()
     {
+        $genre = $this->genre;
         $image = $this->poster_path;
         $title = $this->title;
         $content = $this->overview;
         $custom = $this->vote_average;
         include __DIR__ . "/Card.php";
+    }
+    public function printStars()
+    {
+        $vote = ceil($this->vote_average / 2);
+        include __DIR__ . "/Vote.php";
     }
 
 }
@@ -41,9 +50,11 @@ $movieList = json_decode($movie_string, true);
 // var_dump($Babylon);
 $movies = [];
 foreach ($movieList as $movie) {
-    $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['release_date'], $movie['poster_path'], $movie['original_language']);
+    $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['release_date'], $movie['poster_path'], $movie['original_language'], new Genre('Action'));
 }
 //var_dump($movies);
+
+//echo $movies[0]->printStars();
 
 
 

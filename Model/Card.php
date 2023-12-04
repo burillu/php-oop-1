@@ -9,9 +9,13 @@
                 <?= $content ?>
             </p>
             <div class="d-flex justify-content-between align-items-flex-start">
-                <?= $custom ?>
                 <div>
+                    <?= $this->printStars() ?>
                 </div>
+                <div>
+                    <?php echo $genre->name ?>
+                </div>
+
             </div>
 
         </div>
