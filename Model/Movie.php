@@ -29,7 +29,7 @@ class Movie
         $genre = $this->genre;
         $image = $this->poster_path;
         $title = $this->title;
-        $content = $this->overview;
+        $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->vote_average;
         include __DIR__ . "/Card.php";
     }

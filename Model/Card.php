@@ -8,11 +8,14 @@
             <p class="card-text">
                 <?= $content ?>
             </p>
-            <div class="d-flex justify-content-between align-items-flex-start">
+            <div class="">
                 <div>
-                    <?= $this->printStars() ?>
+                    <span> vote:
+                        <?= $this->printStars() ?>
+                    </span>
                 </div>
                 <div>
+                    genre:
                     <?php echo $genre->name ?>
                 </div>
 
